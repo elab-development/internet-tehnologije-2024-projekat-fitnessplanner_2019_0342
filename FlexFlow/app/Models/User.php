@@ -44,8 +44,10 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
     ];
+    protected $primaryKey = 'userid';
+    public $incrementing = true;
+    protected $keyType = 'int';
 
     public function meals() : HasMany {
         return $this->hasMany(Meal::class);
